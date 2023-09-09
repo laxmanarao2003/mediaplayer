@@ -1,0 +1,158 @@
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/******************************** App.js **********************************/
+
+.flex-column li.nav-item:hover {
+  background-color: rgba(141, 135, 135, 0.217);
+}
+li[title="Music Library"]
+{
+  background-color: rgba(141, 135, 135, 0.217);
+}
+li.nav-item a{
+  font-size: medium;
+}
+#left-arrow{
+  border: none;
+}
+input[type="text"],input[type="text"]:focus{
+  background-color: rgba(141, 135, 135, 0.217);
+  font-size: medium;
+  color: whitesmoke;
+  caret-color: orange; /*rgb(255, 68, 0)*/
+  outline: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom:2.6px  solid whitesmoke;
+  letter-spacing: 0.7px;
+}
+input[type="text"]:focus{
+  background-color: rgba(48, 44, 44, 0.105);
+  border-bottom:2.6px  solid orange;
+}
+input[type="text"]::placeholder{
+  font-size: medium;
+  color: whitesmoke;
+}
+#search-icon{
+  background-color: rgba(141, 135, 135, 0.158);
+}
+
+/******************************** App.js **********************************/
+
+
+/******************************** Songs.js *******************************/
+
+#songs{
+  background-color: rgba(24, 23, 23, 0.863);
+}
+#offcanvasNav{
+  background-color: rgba(24, 23, 23, 0.863);
+}
+.addfolder{
+  background-color: rgba(141, 135, 135, 0.217);
+}
+.dropdown-menu .dropdown-item:hover,.dropdown-menu{
+  background-color: rgba(141, 135, 135, 0.217);
+}
+.list-group-item:nth-child(2n+1){
+  background-color: rgba(141, 135, 135, 0.217);
+}
+.list-group-item a{
+  text-decoration: none;
+  text-overflow: ellipsis;
+}
+div.list-group-item{
+  border: none;
+}
+.list-group-item:nth-child(2n+2){
+  background-color: rgba(24, 23, 23, 0.196);
+}
+.list-group{
+  overflow:auto;
+  height:320px;
+  z-index: -1;
+}
+::-webkit-scrollbar{
+  width: 0px;
+}
+
+
+
+/******************************** Songs.js *******************************/
+
+/******************************** HandleSongs.js *******************************/
+
+#control-songs-bg{
+  background-color: rgba(24, 23, 23, 0.863);
+}
+a{
+  text-decoration: none;
+  font-size: medium;
+  font-family: cursive;
+}
+.playbtn{
+  visibility: hidden;
+  background-color: rgba(141, 135, 135, 0.217);
+}
+:is(#movie span,#singer):hover{
+  background-color: rgba(141, 135, 135, 0.217);
+  color: rgb(255, 193, 7);
+}
+.list-group-item:hover .playbtn{
+  visibility: visible;
+}
+:is(#startTime,#endTime){
+  letter-spacing: 1.5px;
+}
+.volumeIconHigh{
+  display: none;
+}
+.volumeIconLow{
+  display: none;
+}
+:is(.skip-back, .skip-forward):hover{
+  cursor: pointer;
+}
+
+/******************************** HandleSongs.js *******************************/
+
+/******************************** Albums.js *******************************/
+.card{
+  max-width: 175px;
+}
+.cardbody{
+  background-color: rgba(24, 23, 23, 0.863);
+}
+.img-fluid{
+  background-color: rgba(24, 23, 23, 0.863);
+  width: 175px;
+  height: 150px;
+}
+
+#albums-section,#artists-section{
+  overflow: auto;
+  height: 320px;
+}
+.cardbody:nth-child(2){
+  font-size: small;
+}
+.card:hover{
+  cursor: pointer;
+}
+
+/******************************** Albums.js *******************************/
+
+input[type="range"]{
+  cursor: pointer;
+}
