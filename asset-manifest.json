@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/mediaplayer/static/css/main.7dc322e7.css",
-    "main.js": "/mediaplayer/static/js/main.b40bbb25.js",
+    "main.css": "/mediaplayer/static/css/main.d81b2117.css",
+    "main.js": "/mediaplayer/static/js/main.352cc452.js",
     "static/js/787.12d53aff.chunk.js": "/mediaplayer/static/js/787.12d53aff.chunk.js",
     "static/media/KanaveKanave.mp3": "/mediaplayer/static/media/KanaveKanave.f2f4471699d9e467f9f0.mp3",
     "static/media/NeeChoopule.mp3": "/mediaplayer/static/media/NeeChoopule.dd1f1860107c0e69066b.mp3",
@@ -39,12 +39,12 @@
     "static/media/songone.jpg": "/mediaplayer/static/media/songone.f4b2f5340865c8382396.jpg",
     "static/media/songthree.jpeg": "/mediaplayer/static/media/songthree.7e77071ac318e2be664e.jpeg",
     "index.html": "/mediaplayer/index.html",
-    "main.7dc322e7.css.map": "/mediaplayer/static/css/main.7dc322e7.css.map",
-    "main.b40bbb25.js.map": "/mediaplayer/static/js/main.b40bbb25.js.map",
+    "main.d81b2117.css.map": "/mediaplayer/static/css/main.d81b2117.css.map",
+    "main.352cc452.js.map": "/mediaplayer/static/js/main.352cc452.js.map",
     "787.12d53aff.chunk.js.map": "/mediaplayer/static/js/787.12d53aff.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7dc322e7.css",
-    "static/js/main.b40bbb25.js"
+    "static/css/main.d81b2117.css",
+    "static/js/main.352cc452.js"
   ]
 }
