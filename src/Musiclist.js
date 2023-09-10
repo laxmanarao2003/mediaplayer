@@ -46,7 +46,7 @@ class Musiclist extends React.Component{
     }
     render(){
         return (
-            <div className="list-group container" id='musiclist'>
+            <div className="list-group mx-2" id='musiclist'>
 
                 <div className='d-flex align-items-center justify-content-between rounded rounded-2 list-group-item mt-2'>
 

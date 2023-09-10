@@ -3,7 +3,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import VerticalNav from './VerticalNav.js';
-import OffcanvasNav from './OffcanvasNav.js';
 import Songs from './Songs';
 
 /*Importing Bootstrap 5*/
@@ -353,11 +352,12 @@ class App extends React.Component{
 
 		// when resizing the window which component should render:)
 		//const controlsongsbg=document.querySelector("#control-songs-bg")
-		const navbarIdDecider=document.querySelector('.navbarIdDecider')
+		//const navbarIdDecider=document.querySelector('.navbarIdDecider')
 		const musiclist=document.querySelector("#musiclist")
 		const albumsSection=document.querySelector("#albums-section")
 		const part1=document.querySelector("#part1")
-		const part2=document.querySelector("#part2")
+		//const part2=document.querySelector("#part2")
+		const part3=document.querySelector("#part3")
 		const controlssection=document.querySelector('#controls-section')
 		const artistsSection=document.querySelector('#artists-section')
 
@@ -369,26 +369,23 @@ class App extends React.Component{
 			if(($("body").innerWidth())>770){ 
 				this.setState({offcanvasnav:0})
 				this.setState({verticalnav:1})
-				navbarIdDecider.setAttribute("id","vertical-nav")
 				controlssection.classList.remove("flex-column")
-				part1.classList.remove("mb-3")
-				part2.classList.remove("mb-3")
+				part1.style.display="block"
+				part3.style.display="block"
 			}
-			else if((($("body").innerWidth())<=770) && ($("body").innerWidth()>=556)){
+			else if((($("body").innerWidth())<=770) && ($("body").innerWidth()>=576)){
 				this.setState({offcanvasnav:1})
 				this.setState({verticalnav:0})
-				navbarIdDecider.setAttribute("id","offcanvas-nav")
 				controlssection.classList.remove("flex-column")
-				part1.classList.remove("mb-3")
-				part2.classList.remove("mb-3")
+				part1.style.display="block"
+				part3.style.display="block"
 			}
-			else if(($("body").innerWidth()<556)){
+			else if(($("body").innerWidth()<576)){
 				this.setState({offcanvasnav:1})
 				this.setState({verticalnav:0})
-				navbarIdDecider.setAttribute("id","offcanvas-nav")	
 				controlssection.classList.add("flex-column")
-				part1.classList.add("mb-3")
-				part2.classList.add("mb-3")
+				part1.style.display="none"
+				part3.style.display="none"
 				
 			}
 		}
@@ -448,11 +445,13 @@ class App extends React.Component{
 	render(){
 		return(
 			<div className='d-flex navbarIdDecider' id="navbarIdDecider">
-				{/* Calling component whether offcanvas navbar or vertical navbar:)*/}
-				{this.state.offcanvasnav===1?<OffcanvasNav/>:<VerticalNav/>}
 
-				<div className="container" style={{width:"98%"}}>
-					<Songs/>
+				{/* Calling component whether vertical navbar should render or not */}
+				{this.state.offcanvasnav===1?<></>:<VerticalNav/>}
+
+				<div className="container-lg col-xl-9 col-lg-9 col-md-9">
+					{/* passing offcanvas value as props through the component */}
+					<Songs invoke={this.state.offcanvasnav}/>
 				</div>
 			</div>
 		)

@@ -63,7 +63,7 @@ class HandleSongs extends React.Component {
                             <div><h5 className='text-light ps-2' id="songName">01. Kumkumala </h5></div>
                         </div>
                     </div>
-                    <div className='col-xl-4 col-lg-4 col-md-4 col-sm-4' id="part2">
+                    <div className='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12' id="part2">
                         <div className='d-flex justify-content-center align-items-center'>
                             {/* fast Backward by 10 seconds */}
                             <div className='text-light me-4 h2 skip-back' title='Backward 10 seconds'>
