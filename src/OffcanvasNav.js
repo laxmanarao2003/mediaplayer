@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Songs from './Songs';
 
 /* import nav logo */
 import pauselogo from './pauselogo.jpeg';
@@ -11,12 +10,11 @@ import { faBars,faArrowLeft,faFilm,faHouse,faMusic,faList,faGear,faBoxesPacking,
 class OffcanvasNav extends Component {
     render() {
         return (
-            <div className='d-flex' id="offcanvasNav">
-                <div className='' style={{width:"6%"}}>
-                    <button className="btn btn-primary mt-2 ms-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar">
+                <div className='me-4' style={{width:"2%"}}>
+                    <button className="btn btn-primary mt-2 mx-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar">
                         <span><FontAwesomeIcon icon={faBars}/></span>
                     </button>
-                    <div className="offcanvas offcanvas-start col-3 bg-dark" id="offcanvas-navbar">
+                    <div className="w-50 offcanvas offcanvas-start col-3 bg-dark" id="offcanvas-navbar">
                         <div className="offcanvas-header">
                             <header className=""> 
                                 <div className='d-flex'>
@@ -79,10 +77,7 @@ class OffcanvasNav extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="" style={{width:"94%"}}>
-					<Songs/>
-				</div>
-            </div>
+                
         )
     }
 }

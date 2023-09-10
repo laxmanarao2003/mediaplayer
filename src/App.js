@@ -2,6 +2,9 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
+import VerticalNav from './VerticalNav.js';
+import OffcanvasNav from './OffcanvasNav.js';
+import Songs from './Songs';
 
 /*Importing Bootstrap 5*/
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,10 +14,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import $ from 'jquery'; 
 
 /************** import Files *************/
-import './App.css';
+import './App.css';	
 import './index.css';
-import VerticalNav from './VerticalNav.js';
-import OffcanvasNav from './OffcanvasNav.js';
 
 /*Importing images*/
 import pauselogo from './pauselogo.jpeg'
@@ -37,8 +38,6 @@ import songfifteen from './songfifteen.jpg'
 import songsixteen from './songsixteen.jpg'
 import songseventeen from './songseventeen.jpg'
 import songeighteen from './songeighteen.jpg'
-import NavbarDecider from './NavbarDecider';
-
 
 class App extends React.Component{
 	constructor(props){
@@ -52,6 +51,7 @@ class App extends React.Component{
 			volValue:100,
 			expanded:false,
 			offcanvasnav:0,
+			verticalnav:0,
 			songsObject:{
 				"one":songone, "two":songtwo, "three":songthree, "four":songfour, 
 				"five":songfive, "six":songsix, "seven":songseven, "eight":songeight,"nine":songnine,
@@ -352,8 +352,8 @@ class App extends React.Component{
 		})
 
 		// when resizing the window which component should render:)
-		const controlsongsbg=document.querySelector("#control-songs-bg")
-		const verticalnav=document.querySelector('#vertical-nav')
+		//const controlsongsbg=document.querySelector("#control-songs-bg")
+		const navbarIdDecider=document.querySelector('.navbarIdDecider')
 		const musiclist=document.querySelector("#musiclist")
 		const albumsSection=document.querySelector("#albums-section")
 		const part1=document.querySelector("#part1")
@@ -366,23 +366,30 @@ class App extends React.Component{
 		})
 		const responsiveControlSongsBg=()=>{
 
-			if(($("body").innerWidth())>834){ 
+			if(($("body").innerWidth())>770){ 
 				this.setState({offcanvasnav:0})
+				this.setState({verticalnav:1})
+				navbarIdDecider.setAttribute("id","vertical-nav")
 				controlssection.classList.remove("flex-column")
 				part1.classList.remove("mb-3")
 				part2.classList.remove("mb-3")
 			}
-			else if((($("body").innerWidth())<834) && ($("body").innerWidth()>556)){
+			else if((($("body").innerWidth())<=770) && ($("body").innerWidth()>=556)){
 				this.setState({offcanvasnav:1})
+				this.setState({verticalnav:0})
+				navbarIdDecider.setAttribute("id","offcanvas-nav")
 				controlssection.classList.remove("flex-column")
 				part1.classList.remove("mb-3")
 				part2.classList.remove("mb-3")
 			}
 			else if(($("body").innerWidth()<556)){
 				this.setState({offcanvasnav:1})
+				this.setState({verticalnav:0})
+				navbarIdDecider.setAttribute("id","offcanvas-nav")	
 				controlssection.classList.add("flex-column")
 				part1.classList.add("mb-3")
 				part2.classList.add("mb-3")
+				
 			}
 		}
 
@@ -395,10 +402,12 @@ class App extends React.Component{
 			responsive()
 		})
 		const responsive=()=>{
-			let handlesongscroll=controlsongsbg.scrollHeight
-			let height=document.documentElement.scrollHeight
-			if(this.state.expanded && verticalnav){
-				verticalnav.style.height=height-(2*handlesongscroll)-33+'px';
+			//let handlesongscroll=controlsongsbg.scrollHeight
+			//let height=document.documentElement.scrollHeight
+
+			//for vertical scrolling navbar:)
+			if(this.state.expanded && this.state.verticalnav){
+				//verticalnav.style.height=height-(2*handlesongscroll)-33+'px';
 				
 				// set height to the musiclist, albumsection and artists
 				musiclist.style.height=320+'px';
@@ -406,22 +415,47 @@ class App extends React.Component{
 				artistsSection.style.height=320+'px';
 				this.setState({expanded: false})
 			}
-			else if(!this.state.expanded && verticalnav){
+			else if(!this.state.expanded && this.state.verticalnav){
+				//verticalnav.style.height=height+34+'px';
 
 				// set height to the musiclist, albumsection and artists
-				musiclist.style.height=470+'px';
-				albumsSection.style.height=470+'px';
-				artistsSection.style.height=470+'px';
-				verticalnav.style.height=height+34+'px';
+				musiclist.style.height=484+'px';
+				albumsSection.style.height=484+'px';
+				artistsSection.style.height=484+'px';
+				this.setState({expanded: true})
+			}
+
+			//for offcanvas navbar :)
+			else if(this.state.expanded && this.state.offcanvasnav){
+				
+				// set height to the musiclist, albumsection and artists
+				musiclist.style.height=329+'px';
+				albumsSection.style.height=329+'px';
+				artistsSection.style.height=329+'px';
+				this.setState({expanded: false})
+			}
+			else if(!this.state.expanded && this.state.offcanvasnav){
+
+				// set height to the musiclist, albumsection and artists
+				musiclist.style.height=486+'px';
+				albumsSection.style.height=486+'px';
+				artistsSection.style.height=486+'px';
 				this.setState({expanded: true})
 			}
 		}
 	}
 
 	render(){
+		return(
+			<div className='d-flex navbarIdDecider' id="navbarIdDecider">
+				{/* Calling component whether offcanvas navbar or vertical navbar:)*/}
+				{this.state.offcanvasnav===1?<OffcanvasNav/>:<VerticalNav/>}
 
-		// Calling component whether offcanvas navbar or vertical scrollbar:)
-		return <NavbarDecider nav={this.state.offcanvasnav}/>
+				<div className="container" style={{width:"98%"}}>
+					<Songs/>
+				</div>
+			</div>
+		)
 
 	}
 }

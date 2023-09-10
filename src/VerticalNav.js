@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Songs from './Songs';
 /* import nav logo */
 import pauselogo from './pauselogo.jpeg';
 
@@ -11,7 +10,6 @@ class VerticalNav extends Component {
     render() {
         return (
             <>
-                <div className="d-flex flex-nowrap" id='vertical-nav'>
 					{/******************** Vertical Navbar ******************/}
 					<div className="col-lg-3 col-md-3 col-sm-1 bg-dark text-white">
 						<header className=""> 
@@ -62,15 +60,6 @@ class VerticalNav extends Component {
 					</div>
 					{/***************** End Vertical Navbar ********************/}
 
-
-					{/***************** Songs Component (Main content) ***************/}
-					<div className="col-lg-9 col-md-9 col-sm-11" id='songs'>
-						<div className='container'>
-							<Songs/>
-						</div>
-					</div>
-					{/***************** End All Songs (Main content) ***********/}
-				</div>
             </>
         )
     }
